@@ -1,0 +1,40 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: E:/dev
+      to: /home/vagrant/dev
+
+sites:
+    - map: adms.emao.com
+      to: /home/vagrant/dev/pro/git/pro-ad/public
+    - map: zt.emao.com
+      to: /home/vagrant/dev/pro/git/zt/public
+
+databases:
+    - homestead
+variables:
+    - key: 'APP_ENV'
+      value: 'local'
+    - key: 'APP_DEBUG'
+      value: 'true'
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
